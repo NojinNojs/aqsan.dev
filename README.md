@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# aqsan.dev
 
-## Getting Started
+> 🚀 Personal portfolio of Aqsan — a passionate full-stack developer from SMK RPL.
 
-First, run the development server:
+![Banner](public/og-image.png) <!-- Optional: tambahin banner kalau mau -->
+
+## ✨ About
+
+Hi, I'm Aqsan — a 17-year-old full-stack developer currently in vocational high school (SMK RPL). I specialize in building modern, responsive web applications using Next.js, Tailwind CSS, and various backend technologies like PHP and MySQL. This portfolio showcases my skills, projects, and growth journey.
+
+## 🛠️ Tech Stack
+
+- **Frontend:** HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind CSS
+- **Backend:** PHP, MySQL
+- **Tools:** Git, GitHub, VS Code, Figma, Vercel
+
+## 📁 Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+.
+├── app/                # App router with Next.js
+├── components/         # Reusable UI components
+├── public/             # Static assets
+├── styles/             # Global styles
+├── utils/              # Utility functions
+├── README.md
+└── ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📷 Preview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![aqsan.dev preview](public/images/web-previewpng.png) <!-- Bisa pakai vercel screenshot atau manual -->
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📌 Features
 
-## Learn More
+- Fully responsive layout
+- Built with Next.js App Router
+- Uses shadcn/ui component library
+- Clean and minimal UI
+- Dark mode support _(optional)_
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Getting Started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Clone the repo
+git clone https://github.com/NojsNojin/aqsan-dev.git
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Install dependencies
+npm install
 
-## Deploy on Vercel
+# Run development server
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📫 Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Feel free to reach out:
+
+- Portfolio: [aqsan.dev](https://aqsan.vercel.app/)
+- Email: [muhammadraffiaqsan@gmail.com](mailto:your-email@mail.com)
+
+---
+
+> "Discipline will beat talent if talent lacks discipline." — Let's build in public.
+---
