@@ -1,32 +1,13 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Zap, DollarSign, Award, MessageCircle } from "lucide-react"
+import { MessageCircle } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ContainerTextFlip } from "@/components/ui/container-text-flip"
+import FeaturesSection from "@/components/ui/features-section"
 
 export default function Hero() {
-  const benefits = [
-    {
-      icon: Zap,
-      title: "Fast Development",
-      description: "Rapid prototyping and efficient development cycles to bring your ideas to life quickly.",
-    },
-    {
-      icon: DollarSign,
-      title: "Affordable Pricing",
-      description: "Competitive rates without compromising on quality. Transparent pricing with no hidden costs.",
-    },
-    {
-      icon: Award,
-      title: "High-Quality Results",
-      description: "Clean, maintainable code following industry best practices and modern standards.",
-    },
-  ]
-
-  const techStack = ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"]
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -95,7 +76,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Key Benefits Section */}
+          {/* Key Benefits Section - Replaced with FeaturesSection */}
           <motion.div variants={itemVariants} className="mt-4">
             <div className="text-center mb-8">
               <motion.h3 variants={itemVariants} className="text-2xl md:text-3xl font-bold mb-4">
@@ -106,79 +87,27 @@ export default function Hero() {
               </motion.p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              {benefits.map((benefit) => {
-                const Icon = benefit.icon
-                return (
-                  <motion.div
-                    key={benefit.title}
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.02 }}
-                    className="group relative text-center p-6 rounded-lg border hover:border-primary/50 hover:shadow-lg transition-all duration-300"
-                  >
-                    <div className="absolute inset-0 bg-primary/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="relative">
-                      <div className="inline-flex items-center justify-center w-12 h-12 bg-muted rounded-lg mb-4 group-hover:bg-primary/10 transition-colors">
-                        <Icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <h4 className="text-lg font-semibold mb-2">{benefit.title}</h4>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
-                    </div>
-                  </motion.div>
-                )
-              })}
-            </div>
+            <FeaturesSection />
           </motion.div>
 
-          {/* CTA and Tech Stack */}
-          <motion.div variants={itemVariants} className="flex flex-col items-center space-y-8">
-            <div className="text-center space-y-6">
-              <Link href="#contact" className="w-full lg:w-auto">
-                <Button
-                  size="lg"
-                  className="group w-full lg:w-auto rounded-lg px-8 py-6 text-base font-medium hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                >
-                  <MessageCircle className="mr-2 h-5 w-5 transition-transform group-hover:scale-110" aria-hidden="true" />
-                  Let&apos;s Talk
-                </Button>
+          {/* Call to Action */}
+          <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-center justify-center gap-4 mt-8">
+            <Button asChild size="lg" className="rounded-full px-8">
+              <Link href="#contact">
+                <MessageCircle className="mr-2 h-4 w-4" />
+                Contact Me
               </Link>
-              <p className="text-sm text-muted-foreground mt-4">Free consultation • Quick response • No commitment</p>
-            </div>
-
-            <div className="space-y-4 w-full max-w-2xl">
-              <h4 className="text-sm font-semibold uppercase tracking-wider text-center">
-                Core Technologies
-              </h4>
-              <div className="flex flex-wrap gap-2 justify-center">
-                {techStack.map((tech, index) => (
-                  <motion.span
-                    key={tech}
-                    variants={itemVariants}
-                    custom={index}
-                    whileHover={{ scale: 1.05 }}
-                    className="px-3 py-1 text-sm bg-muted text-muted-foreground rounded-md hover:bg-primary/10 hover:text-primary transition-colors cursor-default"
-                  >
-                    {tech}
-                  </motion.span>
-                ))}
-              </div>
-            </div>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="rounded-full px-8">
+              <Link href="#project">View My Work</Link>
+            </Button>
           </motion.div>
 
           {/* Availability Notice */}
-          <motion.div variants={itemVariants} className="text-center space-y-4 pt-8 border-t">
-            <div className="inline-flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span className="text-sm text-muted-foreground uppercase tracking-wider font-medium">
-                Available for new projects
-              </span>
-            </div>
-            <p className="text-lg">
-              Ready to start your next project?{" "}
-              <Link href="#contact" className="font-semibold relative inline-block group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm">
-                Let&apos;s discuss your vision
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary/30 group-hover:bg-primary/50 transition-colors"></span>
-              </Link>
+          <motion.div variants={itemVariants} className="mt-8 text-center">
+            <p className="text-sm text-muted-foreground">
+              <span className="inline-block w-2 h-2 rounded-full bg-green-500 mr-2"></span>
+              Currently available for freelance projects and collaborations
             </p>
           </motion.div>
         </div>
