@@ -1,11 +1,11 @@
 "use client"
 
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { MessageCircle } from "lucide-react"
-import Link from "next/link"
-import { motion } from "framer-motion"
 import { ContainerTextFlip } from "@/components/ui/container-text-flip"
 import FeaturesSection from "@/components/ui/features-section"
+import { handleSmoothScroll } from "@/lib/utils"
 
 export default function Hero() {
   const containerVariants = {
@@ -93,13 +93,13 @@ export default function Hero() {
           {/* Call to Action */}
           <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-center justify-center gap-4 mt-8">
             <Button asChild size="lg" className="rounded-full px-8">
-              <Link href="#contact">
+              <a href="#contact" onClick={handleSmoothScroll}>
                 <MessageCircle className="mr-2 h-4 w-4" />
                 Contact Me
-              </Link>
+              </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full px-8">
-              <Link href="#project">View My Work</Link>
+              <a href="#project" onClick={handleSmoothScroll}>View My Work</a>
             </Button>
           </motion.div>
 
