@@ -17,9 +17,24 @@ const navItems = [
 ]
 
 const socialLinks = [
-  { name: "GitHub", href: "https://github.com/yourusername", icon: Github },
-  { name: "LinkedIn", href: "https://linkedin.com/in/yourusername", icon: Linkedin },
-  { name: "Email", href: "mailto:your.email@example.com", icon: Mail },
+  { 
+    name: "GitHub", 
+    href: process.env.NEXT_PUBLIC_GITHUB_URL, 
+    icon: Github,
+    color: "hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black"
+  },
+  { 
+    name: "LinkedIn", 
+    href: process.env.NEXT_PUBLIC_LINKEDIN_URL, 
+    icon: Linkedin,
+    color: "hover:bg-[#0077B5] hover:text-white dark:hover:bg-[#0077B5] dark:hover:text-white"
+  },
+  { 
+    name: "Email", 
+    href: process.env.NEXT_PUBLIC_EMAIL_URL, 
+    icon: Mail,
+    color: "hover:bg-[#EA4335] hover:text-white dark:hover:bg-[#EA4335] dark:hover:text-white"
+  },
 ]
 
 export default function Navbar() {
@@ -128,7 +143,7 @@ export default function Navbar() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
           >
-            aqsan.dev
+            {process.env.NEXT_PUBLIC_SITE_NAME}
             </motion.a>
 
           {/* Desktop Navigation */}
@@ -311,36 +326,30 @@ export default function Navbar() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group"
+                      className="group relative"
                       initial={{ opacity: 0, scale: 0 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.9 + index * 0.1, duration: 0.4 }}
-                      whileHover={{ scale: 1.2 }}
-                      whileTap={{ scale: 0.9 }}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
                     >
-                      <div className="w-12 h-12 rounded-full border-2 border-black/30 dark:border-white/30 flex items-center justify-center group-hover:border-black dark:group-hover:border-white group-hover:bg-black dark:group-hover:bg-white transition-all duration-300">
-                        <Icon className="w-5 h-5 text-black/70 dark:text-white/70 group-hover:text-white dark:group-hover:text-black transition-colors" />
+                      <div className={`w-12 h-12 rounded-full border-2 border-black/30 dark:border-white/30 flex items-center justify-center group-hover:border-transparent transition-all duration-300 ${social.color}`}>
+                        <Icon className="w-5 h-5 text-black/70 dark:text-white/70 group-hover:text-current transition-colors" />
                       </div>
+                      <motion.span
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 0 }}
+                        whileHover={{ opacity: 1, y: 0 }}
+                        className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs font-medium whitespace-nowrap text-black/70 dark:text-white/70"
+                      >
+                        {social.name}
+                      </motion.span>
                     </motion.a>
                   )
                 })}
               </motion.div>
 
-              {/* Contact Info */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1, duration: 0.6 }}
-                className="text-center space-y-2"
-              >
-                <p className="text-black/60 dark:text-white/60 text-sm font-mono">Get in touch</p>
-                <a
-                  href="mailto:your.email@example.com"
-                  className="text-black dark:text-white text-lg font-medium hover:text-black/80 dark:hover:text-white/80 transition-colors"
-                >
-                  your.email@example.com
-                </a>
-              </motion.div>
+              
             </div>
             </motion.div>
           )}
