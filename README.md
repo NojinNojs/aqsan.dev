@@ -43,7 +43,7 @@ Hi, I'm Aqsan — a 17-year-old full-stack developer currently in vocational hig
 
 ```bash
 # Clone the repo
-git clone https://github.com/NojsNojin/aqsan-dev.git
+git clone https://github.comNojinNojs/aqsan.dev.git
 
 # Install dependencies
 npm install
