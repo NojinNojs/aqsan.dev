@@ -1,28 +1,24 @@
 import { cn } from "@/lib/utils";
-import {
-  Zap,
-  DollarSign,
-  Award
-} from "lucide-react";
+import { Zap, DollarSign, Award } from "lucide-react";
 
 export default function FeaturesSection() {
   const features = [
     {
-      title: "Blazing Fast Development",
+      title: "Fast Development",
       description:
-        "Accelerated prototyping and streamlined development cycles to transform your concepts into powerful digital solutions with unmatched speed.",
+        "Rapid prototyping and efficient development cycles to bring your ideas to life quickly.",
       icon: <Zap />,
     },
     {
-      title: "Intelligent Pricing",
+      title: "Affordable Pricing",
       description:
         "Experience top-tier development without the premium cost. Our transparent, competitive rates ensure exceptional quality and value, free from hidden fees.",
       icon: <DollarSign />,
     },
     {
-      title: "Exquisite Quality Results",
+      title: "High-Quality Results",
       description:
-        "Delivering impeccably clean, scalable, and maintainable code built on industry best practices and cutting-edge standards for lasting excellence.",
+        "Clean, maintainable code following industry best practices and modern standards.",
       icon: <Award />,
     },
   ];

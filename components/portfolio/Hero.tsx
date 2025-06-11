@@ -58,7 +58,7 @@ export default function Hero() {
               <div className="flex flex-col items-center md:items-start gap-4">
                 <motion.div variants={itemVariants} className="text-xl md:text-2xl font-light text-muted-foreground tracking-wide">
                   <ContainerTextFlip
-                    words={["Student", "Problem Solver", "Web Developer"]}
+                    words={["Full Stack Developer", "Problem Solver", "Web Developer", "Photographer"]}
                     interval={3000}
                     className="bg-transparent shadow-none"
                     textClassName="text-primary"
@@ -69,8 +69,8 @@ export default function Hero() {
                   variants={itemVariants}
                   className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl"
                 >
-                  Transforming ideas into powerful digital solutions. I create modern, scalable web applications that drive
-                  business growth and deliver exceptional user experiences.
+                  Transforming ideas into powerful digital solutions by creating modern, scalable web applications that drive
+                  business growth and delivering exceptional user experiences.
                 </motion.p>
               </div>
             </div>
