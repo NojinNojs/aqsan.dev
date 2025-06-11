@@ -58,7 +58,7 @@ export default function Hero() {
               <div className="flex flex-col items-center md:items-start gap-4">
                 <motion.div variants={itemVariants} className="text-xl md:text-2xl font-light text-muted-foreground tracking-wide">
                   <ContainerTextFlip
-                    words={["Full Stack Developer", "Problem Solver", "Web Developer", "Photographer"]}
+                    words={["Front-end", "Back-end", "Developer"]}
                     interval={3000}
                     className="bg-transparent shadow-none"
                     textClassName="text-primary"
