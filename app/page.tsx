@@ -1,6 +1,7 @@
 import Hero from "@/components/portfolio/Hero";
 import About from "@/components/portfolio/About";
 import Skills from "@/components/portfolio/Skills";
+import Projects from "@/components/portfolio/Projects";
 import Contact from "@/components/portfolio/Contact";
 import Footer from "@/components/portfolio/Footer";
 
@@ -16,6 +17,9 @@ export default function Home() {
         </section>
         <section id="skills">
           <Skills />
+        </section>
+        <section id="project">
+          <Projects />
         </section>
         <section id="contact">
           <Contact />
