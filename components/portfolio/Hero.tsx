@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
-import { Button } from "@/components/ui/button";
-import { MessageCircle } from "lucide-react";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { ContainerTextFlip } from "@/components/ui/container-text-flip";
-import FeaturesSection from "@/components/ui/features-section";
+import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button"
+import { MessageCircle } from "lucide-react"
+import { ContainerTextFlip } from "@/components/ui/container-text-flip"
+import FeaturesSection from "@/components/ui/features-section"
+import { handleSmoothScroll } from "@/lib/utils"
 
 export default function Hero() {
   const containerVariants = {
@@ -17,7 +17,7 @@ export default function Hero() {
         delayChildren: 0.2,
       },
     },
-  };
+  }
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -29,7 +29,7 @@ export default function Hero() {
         ease: "easeOut",
       },
     },
-  };
+  }
 
   return (
     <section className="relative container mx-auto px-4 md:px-8 lg:px-12">
@@ -44,10 +44,7 @@ export default function Hero() {
       >
         <div className="grid gap-12 md:gap-16">
           {/* Main Hero Content */}
-          <motion.div
-            variants={itemVariants}
-            className="space-y-6 text-center md:text-left"
-          >
+          <motion.div variants={itemVariants} className="space-y-6 text-center md:text-left">
             <div className="space-y-4">
               <motion.h1
                 variants={itemVariants}
@@ -59,12 +56,9 @@ export default function Hero() {
                 </span>
               </motion.h1>
               <div className="flex flex-col items-center md:items-start gap-4">
-                <motion.div
-                  variants={itemVariants}
-                  className="text-xl md:text-2xl font-light text-muted-foreground tracking-wide"
-                >
+                <motion.div variants={itemVariants} className="text-xl md:text-2xl font-light text-muted-foreground tracking-wide">
                   <ContainerTextFlip
-                    words={["Student", "Problem Solver", "Web Developer"]}
+                    words={["Front-end", "Back-end", "Developer"]}
                     interval={3000}
                     className="bg-transparent shadow-none"
                     textClassName="text-primary"
@@ -75,9 +69,8 @@ export default function Hero() {
                   variants={itemVariants}
                   className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl"
                 >
-                  Transforming ideas into powerful digital solutions. I create
-                  modern, scalable web applications that drive business growth
-                  and deliver exceptional user experiences.
+                  Transforming ideas into powerful digital solutions by creating modern, scalable web applications that drive
+                  business growth and delivering exceptional user experiences.
                 </motion.p>
               </div>
             </div>
@@ -86,18 +79,11 @@ export default function Hero() {
           {/* Key Benefits Section - Replaced with FeaturesSection */}
           <motion.div variants={itemVariants} className="mt-4">
             <div className="text-center mb-8">
-              <motion.h3
-                variants={itemVariants}
-                className="text-2xl md:text-3xl font-bold mb-4"
-              >
-                Keahlian & Kelebihan
+              <motion.h3 variants={itemVariants} className="text-2xl md:text-3xl font-bold mb-4">
+                Why Choose Me?
               </motion.h3>
-              <motion.p
-                variants={itemVariants}
-                className="text-muted-foreground max-w-2xl mx-auto"
-              >
-                Berikut adalah beberapa keahlian dan kelebihan yang saya
-                tawarkan untuk membantu mewujudkan visi digital Anda.
+              <motion.p variants={itemVariants} className="text-muted-foreground max-w-2xl mx-auto">
+                I deliver value through efficient processes, competitive pricing, and unwavering commitment to quality.
               </motion.p>
             </div>
 
@@ -105,23 +91,15 @@ export default function Hero() {
           </motion.div>
 
           {/* Call to Action */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col md:flex-row items-center justify-center gap-4 mt-8"
-          >
+          <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-center justify-center gap-4 mt-8">
             <Button asChild size="lg" className="rounded-full px-8">
-              <Link href="#contact">
+              <a href="#contact" onClick={handleSmoothScroll}>
                 <MessageCircle className="mr-2 h-4 w-4" />
                 Contact Me
-              </Link>
+              </a>
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="rounded-full px-8"
-            >
-              <Link href="#portfolio">View My Work</Link>
+            <Button asChild variant="outline" size="lg" className="rounded-full px-8">
+              <a href="#project" onClick={handleSmoothScroll}>View My Work</a>
             </Button>
           </motion.div>
 
@@ -135,5 +113,5 @@ export default function Hero() {
         </div>
       </motion.div>
     </section>
-  );
+  )
 }

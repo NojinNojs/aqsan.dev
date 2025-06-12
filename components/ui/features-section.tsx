@@ -1,65 +1,29 @@
 import { cn } from "@/lib/utils";
-import {
-  IconBrain,
-  IconCode,
-  IconDeviceLaptop,
-  IconRocket,
-  IconBulb,
-  IconUsers,
-  IconClockHour4,
-  IconHeartHandshake,
-} from "@tabler/icons-react";
+import { Zap, DollarSign, Award } from "lucide-react";
 
 export default function FeaturesSection() {
   const features = [
     {
-      title: "Pengembangan Web Modern",
+      title: "Fast Development",
       description:
-        "Membangun aplikasi web responsif dengan teknologi terkini seperti React, Next.js, dan TypeScript.",
-      icon: <IconCode />,
+        "Rapid prototyping and efficient development cycles to bring your ideas to life quickly.",
+      icon: <Zap />,
     },
     {
-      title: "Solusi Kreatif",
+      title: "Affordable Pricing",
       description:
-        "Pendekatan inovatif untuk memecahkan masalah kompleks dengan solusi yang efektif dan efisien.",
-      icon: <IconBulb />,
+        "Experience top-tier development without the premium cost. Our transparent, competitive rates ensure exceptional quality and value, free from hidden fees.",
+      icon: <DollarSign />,
     },
     {
-      title: "Kode Berkualitas Tinggi",
+      title: "High-Quality Results",
       description:
-        "Menghasilkan kode yang bersih, terstruktur, dan mudah dipelihara mengikuti praktik terbaik industri.",
-      icon: <IconDeviceLaptop />,
-    },
-    {
-      title: "Performa Optimal",
-      description: "Fokus pada kecepatan dan optimasi untuk pengalaman pengguna yang lancar.",
-      icon: <IconRocket />,
-    },
-    {
-      title: "Pembelajaran Cepat",
-      description: "Kemampuan adaptasi tinggi dan cepat menguasai teknologi dan framework baru.",
-      icon: <IconBrain />,
-    },
-    {
-      title: "Kolaborasi Efektif",
-      description:
-        "Bekerja dengan baik dalam tim dan berkomunikasi secara jelas tentang solusi teknis.",
-      icon: <IconUsers />,
-    },
-    {
-      title: "Pengerjaan Tepat Waktu",
-      description:
-        "Komitmen untuk menyelesaikan proyek sesuai jadwal dengan kualitas terbaik.",
-      icon: <IconClockHour4 />,
-    },
-    {
-      title: "Dukungan Berkelanjutan",
-      description: "Memberikan bantuan dan pemeliharaan setelah proyek selesai untuk memastikan keberhasilan jangka panjang.",
-      icon: <IconHeartHandshake />,
+        "Clean, maintainable code following industry best practices and modern standards.",
+      icon: <Award />,
     },
   ];
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 py-10 max-w-7xl mx-auto">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative z-10 py-10 max-w-7xl mx-auto">
       {features.map((feature, index) => (
         <Feature key={feature.title} {...feature} index={index} />
       ))}
@@ -82,14 +46,14 @@ const Feature = ({
     <div
       className={cn(
         "flex flex-col lg:border-r py-10 relative group/feature dark:border-neutral-800",
-        (index === 0 || index === 4) && "lg:border-l dark:border-neutral-800",
-        index < 4 && "lg:border-b dark:border-neutral-800"
+        index === 0 && "lg:border-l dark:border-neutral-800",
+        index < 2 && "lg:border-b dark:border-neutral-800"
       )}
     >
-      {index < 4 && (
+      {index < 2 && (
         <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none" />
       )}
-      {index >= 4 && (
+      {index >= 2 && (
         <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none" />
       )}
       <div className="mb-4 relative z-10 px-10 text-neutral-600 dark:text-neutral-400">
