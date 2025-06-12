@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, HTMLMotionProps } from "framer-motion"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -8,7 +8,7 @@ import { Github, ExternalLink, Calendar, Code2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 
-interface ProjectCardProps {
+interface ProjectCardProps extends HTMLMotionProps<"div"> {
   title: string
   description: string
   image: string
@@ -28,6 +28,7 @@ export function ProjectCard({
   techStack,
   status,
   className,
+  ...props
 }: ProjectCardProps) {
   return (
     <motion.div
@@ -37,6 +38,7 @@ export function ProjectCard({
       transition={{ duration: 0.5 }}
       whileHover={{ y: -1 }}
       className={cn("group h-full", className)}
+      {...props}
     >
       <Card className="relative overflow-hidden border border-black/5 dark:border-white/5 bg-white dark:bg-black hover:border-black/10 dark:hover:border-white/10 hover:shadow-sm dark:hover:shadow-white/5 transition-all duration-500 flex flex-col h-full">
         {/* Image Section with Overlay */}
