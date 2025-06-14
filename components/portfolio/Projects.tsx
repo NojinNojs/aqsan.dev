@@ -36,32 +36,52 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-20">
-      <div className="container max-w-5xl mx-auto px-4">
+    <section id="projects" className="relative py-20">
+      <div className="container max-w-6xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold tracking-tight mb-4">Projects</h2>
-          <p className="text-black/60 dark:text-white/60 max-w-2xl mx-auto">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-4xl md:text-5xl font-bold tracking-tight mb-4"
+          >
+            Projects
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-black/60 dark:text-white/60 max-w-2xl mx-auto text-lg"
+          >
             Explore my latest work and personal projects. Each project is a
             unique journey of problem-solving and innovation.
-          </p>
+          </motion.p>
         </motion.div>
 
-        <div className={`grid grid-cols-1 gap-6 ${projects.length > 1 ? 'md:grid-cols-2 lg:grid-cols-2 mx-auto max-w-4xl' : 'max-w-2xl mx-auto'}`}>
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className={`grid grid-cols-1 gap-8 ${projects.length > 1 ? 'md:grid-cols-2 lg:grid-cols-2 mx-auto max-w-5xl' : 'max-w-2xl mx-auto'}`}
+        >
           {projects.map((project, index) => (
             <ProjectCard
               key={project.title}
               {...project}
               className="animate-in fade-in slide-in-from-bottom-4 duration-500"
-              style={{ animationDelay: `${index * 100}ms` }}
+              style={{ animationDelay: `${index * 200}ms` }}
             />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

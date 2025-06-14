@@ -79,9 +79,9 @@ export default function Hero() {
           {/* Key Benefits Section - Replaced with FeaturesSection */}
           <motion.div variants={itemVariants} className="mt-4">
             <div className="text-center mb-8">
-              <motion.h3 variants={itemVariants} className="text-2xl md:text-3xl font-bold mb-4">
+              <motion.h2 variants={itemVariants} className="text-2xl md:text-3xl font-bold mb-4">
                 Why Choose Me?
-              </motion.h3>
+              </motion.h2>
               <motion.p variants={itemVariants} className="text-muted-foreground max-w-2xl mx-auto">
                 I deliver value through efficient processes, competitive pricing, and unwavering commitment to quality.
               </motion.p>
