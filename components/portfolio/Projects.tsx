@@ -37,7 +37,7 @@ const projects = [
     description: "An interactive landing page that visualizes 17 short-term and 8 long-term public demands with countdown timers, progress tracking, and expandable sections. Built to showcase dynamic layouts, smooth animations, and responsive UI using a bold color scheme.",
     image: "/images/17tambah8.png",
     githubUrl: null,
-    demoUrl: "https://17plus8.vercel.app",
+    demoUrl: "https://17tambah8.vercel.app",
     techStack: ["Next.js (TypeScript)", "Tailwind CSS", "Framer Motion"],
     status: "Solo project"
   }  
