@@ -12,7 +12,7 @@ interface ProjectCardProps extends HTMLMotionProps<"div"> {
   title: string
   description: string
   image: string
-  githubUrl: string
+  githubUrl: string | null
   demoUrl?: string
   techStack: string[]
   status: string
@@ -48,6 +48,12 @@ export function ProjectCard({
             alt={title}
             fill
             className="object-cover transition-all duration-700 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority={false}
+            loading="lazy"
+            quality={75}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bfKv5vqMvQOoUNBBmq4Qr7YdrtdTRKN5gfxQKltSGctSwNR7pclaxz/EgCUdCEo="
           />
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -100,22 +106,34 @@ export function ProjectCard({
         {/* Enhanced Button Section */}
         <CardFooter className="p-6 pt-0">
           <div className="flex gap-2 w-full">
-            <Button
-              variant="outline"
-              size="sm"
-              className="flex-1 group/button border-black/10 dark:border-white/10 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black hover:border-black dark:hover:border-white transition-all duration-300"
-              asChild
-            >
-              <a
-                href={githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-1.5"
+            {githubUrl ? (
+              <Button
+                variant="outline"
+                size="sm"
+                className="flex-1 group/button border-black/10 dark:border-white/10 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black hover:border-black dark:hover:border-white transition-all duration-300"
+                asChild
               >
-                <Github className="w-3.5 h-3.5 transition-transform duration-300 group-hover/button:rotate-12" />
-                <span className="font-medium text-sm">View Code</span>
-              </a>
-            </Button>
+                <a
+                  href={githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-1.5"
+                >
+                  <Github className="w-3.5 h-3.5 transition-transform duration-300 group-hover/button:rotate-12" />
+                  <span className="font-medium text-sm">View Code</span>
+                </a>
+              </Button>
+            ) : (
+              <Button
+                variant="outline"
+                size="sm"
+                disabled
+                className="flex-1 bg-black/10 dark:bg-white/10 text-black/40 dark:text-white/40 cursor-not-allowed border-black/10 dark:border-white/10"
+              >
+                <Github className="w-3.5 h-3.5 mr-1" />
+                <span className="font-medium text-sm">Private Repo</span>
+              </Button>
+            )}
 
             {demoUrl ? (
               <Button

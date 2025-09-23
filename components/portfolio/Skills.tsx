@@ -3,28 +3,16 @@
 import { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import {
-  FaReact,
-  FaNodeJs,
   FaPhp,
   FaLaravel,
-  FaHtml5,
-  FaCss3Alt,
   FaJs,
-  FaGitAlt,
-  FaDiscord,
   FaServer,
 } from "react-icons/fa";
 import {
   SiNextdotjs,
-  SiTailwindcss,
   SiTypescript,
-  SiMysql,
-  SiMongodb,
-  SiCodeigniter,
-  SiExpress,
 } from "react-icons/si";
-import { FcStumbleupon } from "react-icons/fc"; // For Full-stack if no better icon
-// import { Button } from "@/components/ui/button" // Button tidak lagi digunakan
+
 
 interface SkillItemProps {
   skill: {
@@ -76,24 +64,10 @@ export default function Skills() {
       color: "#3178C6",
       textColor: "#FFFFFF",
     },
-    { name: "React", icon: FaReact, color: "#61DAFB", textColor: "#000000" },
     {
       name: "Next.js",
       icon: SiNextdotjs,
       color: "#000000",
-      textColor: "#FFFFFF",
-    },
-    { name: "Node.js", icon: FaNodeJs, color: "#339933", textColor: "#FFFFFF" },
-    {
-      name: "Express.js",
-      icon: SiExpress,
-      color: "#000000",
-      textColor: "#FFFFFF",
-    },
-    {
-      name: "MongoDB",
-      icon: SiMongodb,
-      color: "#47A248",
       textColor: "#FFFFFF",
     },
     { name: "PHP", icon: FaPhp, color: "#777BB4", textColor: "#FFFFFF" },
@@ -104,39 +78,11 @@ export default function Skills() {
       textColor: "#FFFFFF",
     },
     {
-      name: "CodeIgniter 3",
-      icon: SiCodeigniter,
-      color: "#EE4323",
-      textColor: "#FFFFFF",
-    },
-    {
-      name: "Discord Bot",
-      icon: FaDiscord,
-      color: "#5865F2",
-      textColor: "#FFFFFF",
-    },
-    {
-      name: "Tailwind CSS",
-      icon: SiTailwindcss,
-      color: "#06B6D4",
-      textColor: "#FFFFFF",
-    },
-    {
-      name: "Full-stack",
-      icon: FcStumbleupon,
-      color: "#2B2B2B",
-      textColor: "#FFFFFF",
-    },
-    {
       name: "MERN Stack",
       icon: FaServer,
       color: "#4CAF50",
       textColor: "#FFFFFF",
     },
-    { name: "HTML", icon: FaHtml5, color: "#E34F26", textColor: "#FFFFFF" },
-    { name: "CSS", icon: FaCss3Alt, color: "#1572B6", textColor: "#FFFFFF" },
-    { name: "MySQL", icon: SiMysql, color: "#4479A1", textColor: "#FFFFFF" },
-    { name: "Git", icon: FaGitAlt, color: "#F05032", textColor: "#FFFFFF" },
   ];
 
   // Prioritize MERN, Next.js, Laravel, PHP, JS, TS
@@ -152,13 +98,9 @@ export default function Skills() {
   const coreSkills = allSkills.filter((skill) =>
     prioritizedSkillNames.includes(skill.name)
   );
-  // const otherSkills = allSkills.filter(skill => !prioritizedSkillNames.includes(skill.name)) // Dihapus karena tidak ada "See More"
 
-  // const [showAllSkills, setShowAllSkills] = useState(false) // Dihapus karena tidak ada "See More"
 
-  // const skillsToShow = showAllSkills ? allSkills : coreSkills // Langsung gunakan coreSkills
-
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -169,7 +111,7 @@ export default function Skills() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
