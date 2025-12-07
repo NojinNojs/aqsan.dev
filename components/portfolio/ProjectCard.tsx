@@ -36,129 +36,131 @@ export function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      whileHover={{ y: -5 }}
-      className={cn("group h-full", className)}
+      whileHover={{ y: -10, scale: 1.02 }}
+      className={cn("group h-full relative", className)}
       {...props}
     >
-      <Card className="relative overflow-hidden border border-black/5 dark:border-white/5 bg-white dark:bg-black hover:border-black/10 dark:hover:border-white/10 hover:shadow-xl dark:hover:shadow-white/5 transition-all duration-500 flex flex-col h-full">
-        {/* Image Section with Overlay */}
+      {/* Monochrome Gradient Border Effect */}
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-black/10 via-black/5 to-black/10 dark:from-white/10 dark:via-white/5 dark:to-white/10 rounded-2xl opacity-0 group-hover:opacity-100 blur-md transition-all duration-500 group-hover:duration-200" />
+      
+      <Card className="relative h-full overflow-hidden rounded-2xl border border-black/5 dark:border-white/10 bg-white/50 dark:bg-black/50 backdrop-blur-xl shadow-lg transition-all duration-500 flex flex-col">
+        {/* Glass Shine Effect - Pure White/Transparent */}
+        <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/20 dark:via-white/10 to-transparent z-20 pointer-events-none" />
+
+        {/* Image Section */}
         <div className="relative aspect-[16/9] w-full overflow-hidden">
           <Image
             src={image || "/placeholder.svg"}
             alt={title}
             fill
-            className="object-cover transition-all duration-700 group-hover:scale-105"
+            className="object-cover transition-all duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             priority={false}
             loading="lazy"
-            quality={75}
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bfKv5vqMvQOoUNBBmq4Qr7YdrtdTRKN5gfxQKltSGctSwNR7pclaxz/EgCUdCEo="
+            quality={85}
           />
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          {/* Monochrome Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-all duration-500" />
 
           {/* Status Badge */}
-          <div className="absolute top-4 right-4">
+          <div className="absolute top-4 right-4 z-10">
             <Badge
               variant="secondary"
-              className="text-xs font-medium px-2 py-1 backdrop-blur-sm bg-white/90 dark:bg-black/90 text-black dark:text-white border border-black/10 dark:border-white/10"
+              className="text-xs font-medium px-3 py-1.5 backdrop-blur-md bg-white/80 dark:bg-black/80 text-black dark:text-white border border-black/10 dark:border-white/10 shadow-sm"
             >
-              <Calendar className="w-3 h-3 mr-1" />
+              <Calendar className="w-3 h-3 mr-1.5" />
               {status}
             </Badge>
           </div>
         </div>
 
         {/* Content Section */}
-        <CardContent className="p-6 flex-grow">
-          <div className="space-y-4">
-            {/* Title and Description */}
-            <div className="space-y-2">
-              <h3 className="text-xl font-bold tracking-tight text-black dark:text-white group-hover:text-black/90 dark:group-hover:text-white/90 transition-colors duration-300">
-                {title}
-              </h3>
-              <p className="text-black/70 dark:text-white/70 text-sm leading-relaxed line-clamp-3">
-                {description}
-              </p>
-            </div>
+        <CardContent className="p-6 flex-grow flex flex-col gap-4 relative z-10">
+          {/* Title and Description */}
+          <div className="space-y-3">
+            <h3 className="text-2xl font-bold tracking-tight text-black dark:text-white group-hover:text-black/70 dark:group-hover:text-white/70 transition-all duration-300">
+              {title}
+            </h3>
+            <p className="text-black/60 dark:text-white/60 text-sm leading-relaxed line-clamp-3 font-medium">
+              {description}
+            </p>
+          </div>
 
-            {/* Tech Stack */}
-            <div className="space-y-2">
-              <div className="flex items-center gap-1.5 text-sm font-semibold text-black/60 dark:text-white/60 uppercase tracking-wider">
-                <Code2 className="w-3.5 h-3.5" />
-                Tech Stack
-              </div>
-              <div className="flex flex-wrap gap-1.5">
-                {techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-black/5 dark:bg-white/5 text-black/80 dark:text-white/80 border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 transition-colors duration-200"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+          {/* Tech Stack */}
+          <div className="mt-auto space-y-3 pt-2">
+            <div className="flex items-center gap-2 text-xs font-bold text-black/50 dark:text-white/50 uppercase tracking-wider">
+              <Code2 className="w-3.5 h-3.5" />
+              Tech Stack
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-black/5 dark:bg-white/5 text-black/80 dark:text-white/80 border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 transition-colors duration-200 backdrop-blur-sm"
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
           </div>
         </CardContent>
 
         {/* Enhanced Button Section */}
-        <CardFooter className="p-6 pt-0">
-          <div className="flex gap-2 w-full">
+        <CardFooter className="p-6 pt-0 mt-auto relative z-10">
+          <div className="grid grid-cols-2 gap-3 w-full">
             {githubUrl ? (
               <Button
                 variant="outline"
-                size="sm"
-                className="flex-1 group/button border-black/10 dark:border-white/10 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black hover:border-black dark:hover:border-white transition-all duration-300"
+                size="default"
+                className="w-full group/button border-black/10 dark:border-white/10 bg-white/50 dark:bg-black/50 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black backdrop-blur-sm transition-all duration-300 h-11"
                 asChild
               >
                 <a
                   href={githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1.5"
+                  className="flex items-center justify-center gap-2"
                 >
-                  <Github className="w-3.5 h-3.5 transition-transform duration-300 group-hover/button:rotate-12" />
-                  <span className="font-medium text-sm">View Code</span>
+                  <Github className="w-4 h-4 transition-transform duration-300 group-hover/button:rotate-12" />
+                  <span className="font-medium">Code</span>
                 </a>
               </Button>
             ) : (
               <Button
                 variant="outline"
-                size="sm"
+                size="default"
                 disabled
-                className="flex-1 bg-black/10 dark:bg-white/10 text-black/40 dark:text-white/40 cursor-not-allowed border-black/10 dark:border-white/10"
+                className="w-full opacity-50 cursor-not-allowed h-11 bg-black/5 dark:bg-white/5 border-black/10 dark:border-white/10"
               >
-                <Github className="w-3.5 h-3.5 mr-1" />
-                <span className="font-medium text-sm">Private Repo</span>
+                <Github className="w-4 h-4 mr-2" />
+                <span className="font-medium">Private</span>
               </Button>
             )}
 
             {demoUrl ? (
               <Button
-                size="sm"
-                className="flex-1 group/button bg-black hover:bg-black/90 text-white dark:bg-white dark:hover:bg-white/90 dark:text-black transition-all duration-300 shadow-sm hover:shadow-md"
+                size="default"
+                className="w-full group/button bg-black text-white dark:bg-white dark:text-black hover:bg-black/80 dark:hover:bg-white/80 transition-all duration-300 h-11 border-0 shadow-lg hover:shadow-xl"
                 asChild
               >
                 <a
                   href={demoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1.5"
+                  className="flex items-center justify-center gap-2"
                 >
-                  <ExternalLink className="w-3.5 h-3.5 transition-transform duration-300 group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5" />
-                  <span className="font-medium text-sm">Live Demo</span>
+                  <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5" />
+                  <span className="font-medium">Live Demo</span>
                 </a>
               </Button>
             ) : (
               <Button
-                size="sm"
+                size="default"
                 disabled
-                className="flex-1 bg-black/10 dark:bg-white/10 text-black/40 dark:text-white/40 cursor-not-allowed"
+                className="w-full opacity-50 cursor-not-allowed h-11 bg-black/5 dark:bg-white/5"
               >
-                <ExternalLink className="w-3.5 h-3.5 mr-1" />
-                <span className="font-medium text-sm">Coming Soon</span>
+                <ExternalLink className="w-4 h-4 mr-2" />
+                <span className="font-medium">Soon</span>
               </Button>
             )}
           </div>
