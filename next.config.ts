@@ -4,32 +4,33 @@ const nextConfig: NextConfig = {
   // Performance optimizations
   experimental: {
     optimizePackageImports: [
-      '@radix-ui/react-slot',
-      '@radix-ui/react-label',
-      'lucide-react',
-      'framer-motion',
-      'react-icons',
+      "@radix-ui/react-slot",
+      "@radix-ui/react-label",
+      "lucide-react",
+      "framer-motion",
+      "react-icons",
     ],
   },
 
   // Turbopack configuration (stable)
   turbopack: {
     rules: {
-      '*.svg': {
-        loaders: ['@svgr/webpack'],
-        as: '*.js',
+      "*.svg": {
+        loaders: ["@svgr/webpack"],
+        as: "*.js",
       },
     },
   },
 
   // Image optimization
   images: {
-    formats: ['image/webp', 'image/avif'],
+    formats: ["image/webp", "image/avif"],
+    qualities: [75, 85],
     minimumCacheTTL: 31536000, // 1 year
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
+    contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
@@ -42,22 +43,22 @@ const nextConfig: NextConfig = {
     // Bundle splitting
     if (!isServer) {
       config.optimization.splitChunks = {
-        chunks: 'all',
+        chunks: "all",
         cacheGroups: {
           vendor: {
             test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all',
+            name: "vendors",
+            chunks: "all",
           },
           framerMotion: {
             test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
-            name: 'framer-motion',
-            chunks: 'all',
+            name: "framer-motion",
+            chunks: "all",
           },
           radixUI: {
             test: /[\\/]node_modules[\\/]@radix-ui[\\/]/,
-            name: 'radix-ui',
-            chunks: 'all',
+            name: "radix-ui",
+            chunks: "all",
           },
         },
       };
@@ -69,9 +70,9 @@ const nextConfig: NextConfig = {
   // Compression and optimization
   poweredByHeader: false,
   compress: true,
-  
+
   // Bundle analyzer (when ANALYZE=true)
-  ...(process.env.ANALYZE === 'true' && {
+  ...(process.env.ANALYZE === "true" && {
     bundleAnalyzer: {
       enabled: true,
       openAnalyzer: false,
